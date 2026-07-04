@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="bpaas-design-system" content="editorial-apple">
+    <meta name="bpaas-design-theme" content="kr-mono-chrome">
+    <title>상수 룸싸롱 가격 정보 | 상수역 프리미엄 룸싸롱 상세 안내</title>
+    <meta name="description" content="상수 룸싸롱 가격 정보 상세 페이지. 상수역 도보 1분, 최상급 프라이빗 시설과 합리적인 가격 정책. 24시간 연중무휴 예약, 프리미엄 서비스 상세 안내.">
+    <meta name="keywords" content="상수 룸싸롱 가격, 상수 룸싸롱 정보, 상수역 룸싸롱 상세, 상수 룸싸롱 시설, 프리미엄 룸싸롱 안내, 서울 룸싸롱 정보, 홍대 룸싸롱 상세, 상수동 룸싸롱 정보">
+    <link rel="canonical" href="https://t3b07-ss-room-pr-1.vercel.app/info">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="상수 룸싸롱 가격 정보 | 상수역 프리미엄 룸싸롱 상세 안내">
+    <meta property="og:description" content="상수 룸싸롱 가격 정보 상세 페이지. 상수역 도보 1분, 최상급 프라이빗 시설과 합리적인 가격 정책. 24시간 연중무휴 예약.">
+    <meta property="og:url" content="https://t3b07-ss-room-pr-1.vercel.app/info">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* Header & Nav */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .logo a {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #4a4a4a;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .nav-links a:hover {
+            color: #000000;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a1a1a;
+            transition: width 0.2s;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: #1a1a1a;
+            transition: all 0.3s;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                border-bottom: 1px solid #e5e5e5;
+                padding: 16px 24px;
+                gap: 16px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: #e8e8e8;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 24px;
+        }
+        /* Section */
+        .section {
+            padding: 60px 0;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+            color: #1a1a1a;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: #1a1a1a;
+            margin-top: 8px;
+        }
+        /* Grid Cards */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 28px;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 28px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        .card p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .card .highlight {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .data-table th {
+            background: #f1f1f1;
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #ddd;
+            color: #1a1a1a;
+        }
+        .data-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+            color: #444;
+        }
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        .data-table .price {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        /* FAQ */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            padding: 20px 24px;
+        }
+        .faq-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        .faq-item p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        /* CTA */
+        .cta-section {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 28px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #ffffff;
+            color: #1a1a1a;
+            padding: 14px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .cta-button:hover {
+            background: #e8e8e8;
+            transform: scale(1.02);
+        }
+        /* Footer */
+        footer {
+            background: #f1f1f1;
+            padding: 32px 0;
+            text-align: center;
+            color: #777;
+            font-size: 0.85rem;
+            border-top: 1px solid #e5e5e5;
+        }
+        footer a {
+            color: #555;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .data-table { font-size: 0.85rem; }
+            .data-table th, .data-table td { padding: 12px 14px; }
+            .cta-section h2 { font-size: 1.6rem; }
+        }
+    </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <header>
+        <nav class="nav-inner">
+            <div class="logo"><a href="/">상수 룸싸롱</a></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">홈</a></li>
+                <li><a href="/info">정보</a></li>
+                <li><a href="/price">가격</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="tel:0507-1234-5678">예약문의</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <span class="badge">상수역 도보 1분 · 24시 운영</span>
+                <h1>상수 룸싸롱 가격 &amp; 상세 정보</h1>
+                <p>상수역 인근 최상급 프리미엄 룸싸롱의 모든 정보를 한눈에 확인하세요. 합리적인 가격, 철저한 프라이빗 공간, 전문적인 서비스로 고객님께 최고의 경험을 제공합니다. 데이터 기반으로 정리된 상세 안내를 지금 만나보세요.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">프리미엄 시설 및 서비스</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>최상급 사운드 시스템</h3>
+                        <p>독일제 하이엔드 스피커와 전문 엔지니어링 사운드가 적용된 룸. 객실별 독립 음향 설계로 타 룸과의 간섭 없이 최적의 청취 환경을 제공합니다. 업계 최고 수준의 음압과 명료도를 자랑합니다.</p>
+                    </div>
+                    <div class="card">
+                        <h3>프라이빗 &amp; 보안</h3>
+                        <p>각 룸은 완전 방음 처리된 독립 공간으로 운영됩니다. 출입은 전자키 시스템, 내부는 1:1 전담 서비스로 고객님의 프라이버시를 철저히 보호합니다. 업계 평균 대비 40% 높은 방음 성능을 확보했습니다.</p>
+                    </div>
+                    <div class="card">
+                        <h3>마스터 바 &amp; 주류 큐레이션</h3>
+                        <p>국내외 프리미엄 위스키, 양주, 칵테일을 합리적인 가격에 제공합니다. 소믈리에가 엄선한 50여 종의 주류와 시그니처 칵테일 메뉴를 보유하고 있습니다. 모든 음료는 정품만을 취급합니다.</p>
+                    </div>
+                    <div class="card">
+                        <h3>전문 서비스 &amp; 맞춤 케어</h3>
+                        <p>경력 5년 이상의 전문 스태프가 상주하여 고객님의 니즈에 맞춘 세심한 서비스를 제공합니다. 비즈니스 미팅, 접대, 특별한 날 이벤트 등 모든 상황에 최적화된 맞춤형 케어가 가능합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background: #ffffff;">
+            <div class="container">
+                <h2 class="section-title">상수 룸싸롱 가격표</h2>
+                <p style="margin-bottom: 28px; color: #555;">아래 가격은 VAT 포함 기준이며, 시간대와 요일에 따라 변동될 수 있습니다. 모든 가격은 합리적인 수준으로 책정되었습니다.</p>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>객실 타입</th>
+                            <th>기본 시간</th>
+                            <th>시간당 추가 요금</th>
+                            <th>특이 사항</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>스탠다드 룸</td>
+                            <td>2시간</td>
+                            <td><span class="price">₩80,000</span></td>
+                            <td>기본 음료 1인 1잔 포함</td>
+                        </tr>
+                        <tr>
+                            <td>프리미엄 룸</td>
+                            <td>2시간</td>
+                            <td><span class="price">₩120,000</span></td>
+                            <td>프리미엄 위스키 1병 + 안주</td>
+                        </tr>
+                        <tr>
+                            <td>VIP 룸</td>
+                            <td>3시간</td>
+                            <td><span class="price">₩180,000</span></td>
+                            <td>하이엔드 사운드, 전담 서비스</td>
+                        </tr>
+                        <tr>
+                            <td>로열 스위트</td>
+                            <td>3시간</td>
+                            <td><span class="price">₩250,000</span></td>
+                            <td>최대 8인, 풀바 서비스, 프라이빗 라운지</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 16px; font-size: 0
+</body>
+</html>
