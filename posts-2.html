@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/2) · t3b07-ss-room-pr-1</title>
+  <meta name="description" content="t3b07-ss-room-pr-1에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://sangsu-room-guide.namanavi.com/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+ body {
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+ background: #f5f5f5;
+ color: #1a1a1a;
+ line-height: 1.6;
+ }
+ .container {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 0 20px;
+ }
+ header {
+ background: #0a0a0a;
+ position: fixed;
+ width: 100%;
+ top: 0;
+ z-index: 1000;
+ border-bottom: 1px solid #2a2a2a;
+ }
+ .nav-inner {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ height: 70px;
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 0 20px;
+ }
+ .logo a {
+ color: #ffffff;
+ text-decoration: none;
+ font-size: 1.4rem;
+ font-weight: 700;
+ letter-spacing: -0.5px;
+ }
+ .logo a span {
+ color: #d4a853;
+ }
+ .nav-links {
+ display: flex;
+ gap: 32px;
+ list-style: none;
+ }
+ .nav-links a {
+ color: #cccccc;
+ text-decoration: none;
+ font-size: 0.95rem;
+ font-weight: 500;
+ transition: color 0.2s ease;
+ letter-spacing: 0.3px;
+ }
+ .nav-links a:hover {
+ color: #d4a853;
+ }
+ .hamburger {
+ display: none;
+ flex-direction: column;
+ cursor: pointer;
+ padding: 4px;
+ }
+ .hamburger span {
+ width: 26px;
+ height: 2px;
+ background: #ffffff;
+ margin: 3px 0;
+ transition: all 0.3s ease;
+ }
+ .hamburger.active span:nth-child(1) {
+ transform: rotate(45deg) translate(5px, 5px);
+ }
+ .hamburger.active span:nth-child(2) {
+ opacity: 0;
+ }
+ .hamburger.active span:nth-child(3) {
+ transform: rotate(-45deg) translate(5px, -5px);
+ }
+ @media (max-width: 768px) {
+ .nav-links {
+ display: none;
+ position: absolute;
+ top: 70px;
+ left: 0;
+ width: 100%;
+ background: #0a0a0a;
+ flex-direction: column;
+ padding: 20px;
+ gap: 16px;
+ border-bottom: 1px solid #2a2a2a;
+ }
+ .nav-links.active {
+ display: flex;
+ }
+ .hamburger {
+ display: flex;
+ }
+ }
+ .hero {
+ padding: 140px 0 80px;
+ text-align: center;
+ background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+ color: #ffffff;
+ }
+ .hero h1 {
+ font-size: 3rem;
+ font-weight: 800;
+ margin-bottom: 20px;
+ letter-spacing: -1px;
+ line-height: 1.2;
+ }
+ .hero h1 span {
+ color: #d4a853;
+ }
+ .hero p {
+ font-size: 1.15rem;
+ color: #aaaaaa;
+ max-width: 720px;
+ margin: 0 auto;
+ line-height: 1.7;
+ }
+ .hero-meta {
+ display: flex;
+ justify-content: center;
+ gap: 24px;
+ margin-top: 28px;
+ font-size: 0.9rem;
+ color: #888888;
+ }
+ .hero-meta span {
+ display: flex;
+ align-items: center;
+ gap: 6px;
+ }
+ @media (max-width: 768px) {
+ .hero { padding: 120px 0 50px; }
+ .hero h1 { font-size: 2rem; }
+ .hero p { font-size: 1rem; padding: 0 16px; }
+ .hero-meta { flex-direction: column; gap: 8px; align-items: center; }
+ }
+ .blog-content {
+ padding: 80px 0;
+ }
+ .blog-article {
+ max-width: 800px;
+ margin: 0 auto;
+ background: #ffffff;
+ border-radius: 12px;
+ padding: 48px;
+ box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+ }
+ .blog-article h2 {
+ font-size: 1.8rem;
+ font-weight: 700;
+ margin: 40px 0 16px;
+ color: #1a1a1a;
+ letter-spacing: -0.3px;
+ }
+ .blog-article h2:first-of-type {
+ margin-top: 0;
+ }
+ .blog-article h3 {
+ font-size: 1.3rem;
+ font-weight: 600;
+ margin: 28px 0 12px;
+ color: #2a2a2a;
+ }
+ .blog-article p {
+ font-size: 1.05rem;
+ color: #444444;
+ margin-bottom: 20px;
+ line-height: 1.8;
+ }
+ .blog-article ul {
+ margin: 16px 0 24px;
+ padding-left: 24px;
+ }
+ .blog-article ul li {
+ font-size: 1.05rem;
+ color: #444444;
+ margin-bottom: 10px;
+ line-height: 1.7;
+ }
+ .blog-article ul li strong {
+ color: #1a1a1a;
+ }
+ .blog-article .highlight-box {
+ background: #f8f6f0;
+ border-left: 4px solid #d4a853;
+ padding: 20px 24px;
+ margin: 24px 0;
+ border-radius: 0 8px 8px 0;
+ }
+ .blog-article .highlight-box p {
+ margin-bottom: 0;
+ font-size: 1rem;
+ }
+ .blog-article .highlight-box p strong {
+ color: #1a1a1a;
+ }
+ .blog-article .data-table {
+ width: 100%;
+ border-collapse: collapse;
+ margin: 24px 0;
+ font-size: 0.95rem;
+ }
+ .blog-article .data-table th {
+ background: #1a1a1a;
+ color: #ffffff;
+ padding: 12px 16px;
+ text-align: left;
+ font-weight: 600;
+ }
+ .blog-article .data-table td {
+ padding: 12px 16px;
+ border-bottom: 1px solid #e0e0e0;
+ color: #444444;
+ }
+ .blog-article .data-table tr:nth-child(even) td {
+ background: #f9f9f9;
+ }
+ @media (max-width: 768px) {
+ .blog-article { padding: 28px 20px; }
+ .blog-article h2 { font-size: 1.4rem; }
+ .blog-article p { font-size: 0.95rem; }
+ .blog-article .data-table { font-size: 0.85rem; }
+ .blog-article .data-table th,
+ .blog-article .data-table td { padding: 8px 10px; }
+ }
+ .cta-section {
+ max-width: 800px;
+ margin: 32px auto 0;
+ background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+ border-radius: 12px;
+ padding: 40px 48px;
+ text-align: center;
+ color: #ffffff;
+ }
+ .cta-section h3 {
+ font-size: 1.6rem;
+ font-weight: 700;
+ margin-bottom: 12px;
+ }
+ .cta-section p {
+ font-size: 1.05rem;
+ color: #aaaaaa;
+ margin-bottom: 24px;
+ }
+ .cta-section .cta-button {
+ display: inline-block;
+ background: #d4a853;
+ color: #0a0a0a;
+ padding: 14px 40px;
+ border-radius: 6px;
+ text-decoration: none;
+ font-weight: 700;
+ font-size: 1.05rem;
+ transition: background 0.2s ease;
+ }
+ .cta-section .cta-button:hover {
+ background: #c49a3f;
+ }
+ @media (max-width: 768px) {
+ .cta-section { padding: 28px 20px; }
+ .cta-section h3 { font-size: 1.3rem; }
+ }
+ footer {
+ background: #0a0a0a;
+ padding: 40px 0;
+ text-align: center;
+ border-top: 1px solid #2a2a2a;
+ }
+ footer p {
+ color: #666666;
+ font-size: 0.9rem;
+ margin-bottom: 6px;
+ }
+ footer a {
+ color: #d4a853;
+ text-decoration: none;
+ }
+ @media (max-width: 768px) {
+ footer p { font-size: 0.8rem; }
+ }
+ </style>
+  <meta property="og:title" content="글 목록 (2/2) · t3b07-ss-room-pr-1">
+  <meta property="og:description" content="t3b07-ss-room-pr-1에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://sangsu-room-guide.namanavi.com/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <div class="nav-inner">
+ <div class="logo">
+ <a href="/">상수<span>룸싸롱</span></a>
+ </div>
+ <ul class="nav-links" id="navLinks">
+ <li><a href="/">홈</a></li>
+ <li><a href="/about">소개</a></li>
+ <li><a href="/price">가격</a></li>
+ <li><a href="/gallery">갤러리</a></li>
+ <li><a href="/blog">블로그</a></li>
+ <li><a href="/contact">예약문의</a></li>
+ </ul>
+ <div class="hamburger" id="hamburger">
+ <span></span>
+ <span></span>
+ <span></span>
+ </div>
+ </div>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 40개 · 2/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0259.html">상수 룸싸롱 가격 넘어서는 합정 셔츠룸 단골들이 뽑은 핫플 매거진 이용 팁</a>
+        <p class="post-item__summary">쾌적한 환경, 합리적인 비용, 그리고 만족스러운 인원 구성은 핫플레이스를 방문하기 위한 3대 조건입니다. 상수 룸싸롱 가격 정보를 알아보시는 분들 중 상당수가 실상은 더 트렌디한 장소를 갈망하곤 합</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0260.html">상수 룸싸롱 가격 확인보다 빠른 구글 인덱싱 속도 초고속 광회선 대역폭 최적화</a>
+        <p class="post-item__summary">여러분은 복잡한 검색 결과를 마주할 때 어떤 기준으로 업체를 선택하시나요? 상수 룸싸롱 가격 정보를 찾으려 해도 원하는 결과가 제때 로드되지 않는다면 큰 불편을 겪게 됩니다. 디지털 세상에서도 정보</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0261.html">상수 룸싸롱 가격 확인하며 배우는 구글 신뢰 지수 모발이식 솔루션</a>
+        <p class="post-item__summary">정보의 홍수 속에서 우리는 끊임없이 데이터를 검증해야 하는 상황에 놓여 있습니다. 특히 상수 룸싸롱 가격 정보처럼 특정 업종의 비용 구조를 살필 때, 데이터의 출처가 얼마나 신뢰할 수 있는지를 확인</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0232.html">상수 룸싸롱 가격 체크리스트로 완성하는 공덕 가라오케 추천정보</a>
+        <p class="post-item__summary">상수 룸싸롱 가격 기준에 맞춰 장소를 찾다가도 결국 만족도를 결정짓는 것은 가라오케 자체의 접근성입니다. 특히 업무 밀도가 높은 공덕 지역에서 모임을 가진다면 위치 선정은 성공 여부를 가르는 핵심 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0233.html">상수 룸싸롱 가격 정보 확인 전 알아야 할 상수 마사지 추천정보</a>
+        <p class="post-item__summary">평일 저녁 퇴근길에 상수 룸싸롱 가격 검색을 하며 막연히 유흥을 고민하는 분들이 많습니다. 하지만 피로가 극에 달한 상태라면 무리한 일정보다는 몸의 회복을 먼저 생각하는 것이 현명합니다. 상수 지역</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0234.html">상수 룸싸롱 가격 비교하며 살펴보는 망원 노래방 추천정보 팁</a>
+        <p class="post-item__summary">간혹 상수 룸싸롱 가격 정보가 노래방 이용 비용과 같을 것이라고 오해하는 경우가 빈번합니다. 하지만 운영 방식과 서비스 성격이 판이하게 다르므로 두 업종을 동일 선상에서 비교하는 것은 옳지 않습니다</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0235.html">상수 룸싸롱 가격 확인 후 알아보는 홍대 노래방 추천정보 기준</a>
+        <p class="post-item__summary">쾌적한 환경, 최신식 음향 장비, 친절한 서비스라는 세 가지 충족 조건이 갖춰진 곳을 찾는 것은 모든 방문객의 바람입니다. 상수 룸싸롱 가격 수준의 고급 유흥보다는 조금 더 캐주얼하고 대중적인 분위</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0236.html">상수 룸싸롱 가격 분석을 통한 공덕 셔츠룸 추천정보 확인하기</a>
+        <p class="post-item__summary">상수 룸싸롱 가격 수준을 검색하며 합리적인 선택을 고민하고 계신가요. 많은 이용객이 비용 대비 만족도를 높이기 위해 다양한 업종의 특징을 살피고 있습니다. 특히 인근 지역인 공덕 일대에서 셔츠룸을 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0237.html">상수 룸싸롱 가격 비교로 보는 연남 유흥 추천정보 가이드</a>
+        <p class="post-item__summary">상수 룸싸롱 가격 정보를 검토하면서 적절한 장소를 찾는 일련의 과정은 체계적인 접근이 필요합니다. 먼저 자신의 예산 범위를 명확히 설정하고, 그다음으로 지역 내 매장들의 운영 방식을 조사하는 1단계</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0238.html">상수 룸싸롱 가격 차이와 마곡 가라오케 추천정보 결정 기준</a>
+        <p class="post-item__summary">상수 룸싸롱 가격 체계를 살펴보며 어떤 유형의 업장을 선택해야 할지 고민하는 분들이 많습니다. 크게 일반적인 노래방 형태와 전문 가라오케 형태로 나뉘는데, 각자 추구하는 서비스의 방향성이 다르기 때</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0239.html">상수 룸싸롱 가격 알아보기 전 고려할 마곡 유흥 추천정보</a>
+        <p class="post-item__summary">많은 이들이 처음 지역의 유흥 문화를 탐색할 때 흔히 상수 룸싸롱 가격 같은 단편적인 정보에만 집중하곤 합니다. 하지만 이러한 정보는 업장의 서비스 구성이나 운영 방침을 전혀 고려하지 않은 경우가 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0240.html">상수 룸싸롱 가격 비교하며 체크할 합정 노래방 추천정보</a>
+        <p class="post-item__summary">상수 룸싸롱 가격 기준에 매몰되어 인근 합정 지역의 노래방을 찾는 과정에서 본질을 놓치는 사례가 많습니다. 만족스러운 시간을 보내기 위해서는 가격 이상의 가치를 평가할 수 있는 구체적인 체크리스트가</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0241.html">상수 룸싸롱 가격 확인 후 알아두는 연남 클럽 추천정보</a>
+        <p class="post-item__summary">주말 밤 연남동의 골목을 걷다 보면 들려오는 음악 소리에 이끌려 즉흥적으로 클럽 입구를 기웃거리는 사람들을 자주 봅니다. 상수 룸싸롱 가격과 비교하며 예산을 따져보던 이들에게는 클럽 특유의 자유로운</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0242.html">상수 룸싸롱 가격 오해와 합정 셔츠룸 추천정보 선택 가이드</a>
+        <p class="post-item__summary">흔히들 상수 룸싸롱 가격 정보를 찾을 때 단순히 비용이 매우 높게만 형성되어 있을 것이라는 편견을 갖곤 합니다. 하지만 합정 인근에서 운영되는 업태들은 운영 방식과 시스템에 따라 체계적인 정찰제를 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/guide-002-1b1i6dz.html">월 3 천 원 찍고도 6 개월 만에 죽은 상권, 그 원가 구조가 상수 룸싸롱 가격보다 더 무서운 이유</a>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-1.html">상수 룸싸롱 가격 안내</a>
+        <p class="post-item__summary">상수 지역에서 룸싸롱을 방문하려는 경우, 가격에 대한 사전 정보는 매우 중요합니다. 하지만 각 업소의 요금 체계는 매우 다양하며, 시간별·코스별·옵션별로 천차만별입니다. 따라서 정확한 가격은 직접 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-2.html">상수 룸싸롱 가격과 유흥 트렌드 정보</a>
+        <p class="post-item__summary">상수 지역에서 룸싸롱을 고려할 때 가격 정보는 매우 중요한 결정 요인 중 하나입니다. 각 업소는 운영 비용, 입지 조건, 서비스 제공 범위 등에 따라 다양하게料金을 책정하고 있으며, 이는 고객들이 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-1.html">상수 룸싸롱 가격에 대한 안내</a>
+        <p class="post-item__summary">상수 지역의 룸싸롱 가격은 업소마다 차이가 있으며, 이용 시간대나 코스의 종류에 따라 달라질 수 있습니다. 일반적으로 룸싸롱은 시간제 또는 코스제로 운영되므로, 방문 전에 해당 업소에서 제공하는 기</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-2.html">상수 룸싸롱 가격 가이드</a>
+        <p class="post-item__summary">상수 지역에서 룸싸롱을 찾기 위해 비용 정보를 검색하는 분들이 많습니다. 특히 룸싸롱 가격에 대해 정확히 알고 싶어서 찾아오시는 경우가 대부분입니다. 이 글에서는 상수 룸싸롱 가격과 관련된 일반적인</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-3.html">상수 룸싸롱 가격 기본 안내</a>
+        <p class="post-item__summary">룸싸롱은 주로 손님에게 음료와 함께하는 대화를 제공하는 업소로, 지역별로 다양한 형태의 운영 방식이 존재합니다. 상수 지역의 룸싸롱 또한 각 업소마다 상이한 요금 체계를 갖추고 있으며, 이는 매장 </p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
